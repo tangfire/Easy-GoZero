@@ -1,0 +1,22 @@
+type LoginRequest {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type UserInfoResponse {
+	UserId   uint   `json:"user_id"`
+	Username string `json:"username"`
+}
+
+@server (
+	prefix: /api/users
+)
+service user {
+	@handler login
+	post /login (LoginRequest) returns (string)
+
+	@handler userInfo
+	get /info returns (UserInfoResponse)
+}
+
+//  goctl api go -api api_syntax_03/user_01/api/user_01.api -dir api_syntax_03/user_01/api/
