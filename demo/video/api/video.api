@@ -1,0 +1,16 @@
+type (
+	VideoReq {
+		Id string `path:"id"`
+	}
+	VideoRes {
+		Id   string `json:"id"`
+		Name string `json:"name"`
+	}
+)
+
+service video {
+	@handler getVideo
+	get /api/videos/:id (VideoReq) returns (VideoRes)
+}
+
+// goctl api_syntax go -api_syntax demo/video/api_syntax/video.api_syntax -dir demo/video/api_syntax/

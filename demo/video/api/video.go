@@ -4,15 +4,15 @@ import (
 	"flag"
 	"fmt"
 
-	"Easy-GoZero/user/api/internal/config"
-	"Easy-GoZero/user/api/internal/handler"
-	"Easy-GoZero/user/api/internal/svc"
+	"Easy-GoZero/demo/video/api/internal/config"
+	"Easy-GoZero/demo/video/api/internal/handler"
+	"Easy-GoZero/demo/video/api/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/rest"
 )
 
-var configFile = flag.String("f", "etc/api_syntax-api_syntax.yaml", "the config file")
+var configFile = flag.String("f", "etc/video.yaml", "the config file")
 
 func main() {
 	flag.Parse()
