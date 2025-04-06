@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "./user";
+
+
+message UserInfoRequest {
+  uint32 user_id = 1;
+}
+message UserInfoResponse {
+  uint32 user_id = 1;
+  string username = 2;
+}
+
+
+message UserCreateRequest {
+  string username = 1;
+  string password = 2;
+}
+message UserCreateResponse {
+  uint32 user_id = 1;
+  string err = 2;
+}
+
+
+service user{
+  rpc UserInfo(UserInfoRequest)returns(UserInfoResponse);
+  rpc UserCreate(UserCreateRequest)returns(UserCreateResponse);
+}
+
+
+// goctl rpc protoc user.proto --go_out=./types --go-grpc_out=./types --zrpc_out=.

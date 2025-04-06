@@ -1,0 +1,8 @@
+Name: users
+Host: 0.0.0.0
+Port: 8888
+Mysql:
+  DataSource: root:8888.216@tcp(127.0.0.1:3306)/gozero?charset=utf8mb4&parseTime=True&loc=Local
+Auth:
+  AccessSecret: dfff1234
+  AccessExpire: 3600

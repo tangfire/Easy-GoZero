@@ -1,0 +1,26 @@
+type UserCreateRequest {
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type UserInfoRequest {
+	ID uint `path:"id"`
+}
+
+type UserInfoResponse {
+	UserId   uint   `json:"user_id"`
+	Username string `json:"username"`
+}
+
+@server (
+	prefix: /api/users
+)
+service users {
+	@handler userInfo
+	get /:id (UserInfoRequest) returns (UserInfoResponse)
+
+	@handler userCreate
+	post / (UserCreateRequest) returns (string)
+}
+
+// goctl api go -api user.api -dir .
